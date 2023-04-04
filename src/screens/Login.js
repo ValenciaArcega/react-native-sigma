@@ -1,7 +1,41 @@
-import { View, Image, Text, KeyboardAvoidingView, TextInput, ScrollView, TouchableOpacity } from 'react-native';
+import { View, Image, Text, KeyboardAvoidingView, TextInput, ScrollView, TouchableOpacity, Alert } from 'react-native';
 import s from "../styles/LoginStyles";
+import { useState } from "react";
+import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
+import { initializeApp } from "firebase/app";
+import { firebaseConfig } from '../../firebase';
 
 const Login = () => {
+  /*const handleSignUp = () => {
+    auth
+      .createUserWithEmailAndPassword(email, pass)
+      .then(userCredentials => {
+        const user = userCredentials.user;
+        console.log(user.email);
+      })
+      .catch(err => Alert.alert(err.message));
+  };*/
+
+  const [email, setEmail] = useState('');
+  const [pass, setPass] = useState('');
+
+  const app = initializeApp(firebaseConfig);
+  const auth = getAuth(app);
+
+  const handleCreateUser = () => {
+    createUserWithEmailAndPassword(auth, email, pass)
+      .then(() => {
+        Alert('Cuenta creada');
+        const user = userCredential.user;
+        console.log(user);
+      })
+      .catch(err => {
+        Alert(err);
+        // console.log(err);
+      });
+  };
+
+
   return (
     <KeyboardAvoidingView style={s.screenLogin} behavior="padding">
 
@@ -12,19 +46,28 @@ const Login = () => {
 
           <View behavior="padding" style={s.LoginContainerInput}>
             <Text style={s.LoginInputHeader}>Correo electrónico</Text>
-            <TextInput style={s.LoginInput} placeholder="Ingresa un correo valido"></TextInput>
+            <TextInput
+              style={s.LoginInput}
+              onChangeText={text => setEmail(text)}
+              placeholder="Ingresa un correo valido"
+            ></TextInput>
           </View>
 
           <View style={s.LoginContainerInput}>
             <Text style={s.LoginInputHeader}>Contraseña</Text>
-            <TextInput style={s.LoginInput} placeholder="Ingresa tu contraseña" secureTextEntry></TextInput>
+            <TextInput
+              style={s.LoginInput}
+              onChangeText={text => setPass(text)}
+              placeholder="Ingresa tu contraseña"
+              secureTextEntry
+            ></TextInput>
           </View>
 
           <TouchableOpacity style={s.LoginButtons}>
             <Text style={s.textButton}>Ingresar</Text>
           </TouchableOpacity>
 
-          <TouchableOpacity style={[s.LoginButtons, s.RegisterButton]}>
+          <TouchableOpacity style={[s.LoginButtons, s.RegisterButton]} onPress={handleCreateUser}>
             <Text style={s.textButton}>Registrarme</Text>
           </TouchableOpacity>
 
