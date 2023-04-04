@@ -12,7 +12,7 @@ const s = StyleSheet.create({
     backgroundColor: "white"
   },
   NavBarButton: {
-    width: '33%',
+    flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
   },

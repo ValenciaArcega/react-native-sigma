@@ -12,7 +12,7 @@ const Profile = () => {
   const auth = getAuth(app);
   const navigation = useNavigation();
 
-  const signOut = () => {
+  const getOut = () => {
     auth.signOut()
       .then(() => {
         navigation.replace('Login');
@@ -26,7 +26,7 @@ const Profile = () => {
     <>
       <TouchableOpacity
         style={s.ButtonSignOut}
-        onPress={signOut}>
+        onPress={getOut}>
         <Text style={s.ButtonSignOutText}>Cerrar Sesión</Text>
       </TouchableOpacity>
       <NavBar />
