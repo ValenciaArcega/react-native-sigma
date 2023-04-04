@@ -5,6 +5,7 @@ import { firebaseConfig } from '../../firebase';
 import { useNavigation } from "@react-navigation/native";
 import { getAuth } from "firebase/auth";
 import { Alert } from "react-native";
+import NavBar from "../../components/NavBar";
 
 const Profile = () => {
   const app = initializeApp(firebaseConfig);
@@ -22,11 +23,14 @@ const Profile = () => {
   };
 
   return (
-    <TouchableOpacity
-      style={s.ButtonSignOut}
-      onPress={signOut}>
-      <Text style={s.ButtonSignOutText}>Cerrar Sesión</Text>
-    </TouchableOpacity>
+    <>
+      <TouchableOpacity
+        style={s.ButtonSignOut}
+        onPress={signOut}>
+        <Text style={s.ButtonSignOutText}>Cerrar Sesión</Text>
+      </TouchableOpacity>
+      <NavBar />
+    </>
   );
 };
 

@@ -1,16 +1,24 @@
-import { View } from 'react-native';
-import Profile from "./home/Profile";
+import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import NavBar from "../components/NavBar";
+import Search from "./home/Search";
+import Profile from "./home/Profile";
+import Dashboard from './home/Dashboard';
 
 const Stack = createNativeStackNavigator();
 
 const Home = () => {
   return (
-    <View>
-      <Profile />
-      <NavBar />
-    </View>
+    <NavigationContainer independent="true">
+      <Stack.Navigator initialRouteName="Dashboard">
+
+        <Stack.Screen name="Dashboard" component={Dashboard} options={{ headerShown: false }}></Stack.Screen>
+
+        <Stack.Screen name="Search" component={Search} options={{ headerShown: false }}></Stack.Screen>
+
+        <Stack.Screen name="Profile" component={Profile} options={{ headerShown: false }}></Stack.Screen>
+
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 };
 
