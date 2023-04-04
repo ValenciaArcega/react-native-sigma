@@ -1,12 +1,17 @@
 const dashBoardData = [
   {
     name: 'Verificación',
-    date: '08/05/2023',
+    date: 'lunes 15/octubre/2023',
     remainingDays: 0,
   },
   {
     name: 'Tenencia',
-    date: '12/07/2023',
+    date: 'viernes 12/abril/2023',
+    remainingDays: 0,
+  },
+  {
+    name: 'Seguro',
+    date: 'martes 2/noviembre/2024',
     remainingDays: 0,
   },
 ];
