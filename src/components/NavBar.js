@@ -18,7 +18,7 @@ const NavBar = () => {
 
       <TouchableOpacity onPress={goDashboard} style={s.NavBarButton}>
         <Icon name="monitor-dashboard" size={24} color="#181818" />
-        <Text style={s.NavBarButtonText}>Inicio</Text>
+        <Text style={s.NavBarButtonText}>Panel</Text>
       </TouchableOpacity>
 
       <TouchableOpacity onPress={goSearch} style={[s.NavBarButton, s.NavBarButtonSearch]}>
