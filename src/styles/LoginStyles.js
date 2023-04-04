@@ -12,7 +12,7 @@ const s = StyleSheet.create({
     height: "90%",
     width: "90%",
     marginTop: 12,
-    paddingBottom: 8,
+    paddingBottom: 2,
     alignItems: "center",
     borderRadius: 12,
     backgroundColor: "#fff"
@@ -69,7 +69,7 @@ const s = StyleSheet.create({
     fontWeight: 500
   },
   RegisterButton: {
-    backgroundColor: "#74c0fc"
+    backgroundColor: "#339af0"
   },
 });
 

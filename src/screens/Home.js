@@ -1,9 +1,10 @@
 import { View, Text } from 'react-native';
+import Profile from "./home/Profile";
 
 const Home = () => {
   return (
     <View>
-      <Text>This is the home one</Text>
+      <Profile />
     </View>
   );
 };

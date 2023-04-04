@@ -1,40 +1,50 @@
 import { View, Image, Text, KeyboardAvoidingView, TextInput, ScrollView, TouchableOpacity, Alert } from 'react-native';
 import s from "../styles/LoginStyles";
-import { useState } from "react";
-import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
+import { useEffect, useState } from "react";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth';
 import { initializeApp } from "firebase/app";
-import { firebaseConfig } from '../../firebase';
+import { firebaseConfig } from '../firebase';
+import { useNavigation } from "@react-navigation/native";
 
 const Login = () => {
-  /*const handleSignUp = () => {
-    auth
-      .createUserWithEmailAndPassword(email, pass)
-      .then(userCredentials => {
-        const user = userCredentials.user;
-        console.log(user.email);
-      })
-      .catch(err => Alert.alert(err.message));
-  };*/
 
   const [email, setEmail] = useState('');
   const [pass, setPass] = useState('');
-
   const app = initializeApp(firebaseConfig);
   const auth = getAuth(app);
+  const navegation = useNavigation();
+
+  useEffect(() => {
+    const unSuscribed = auth.onAuthStateChanged(user => {
+      if (user) navegation.replace('Home');
+    });
+
+    return unSuscribed;
+  }, []);
 
   const handleCreateUser = () => {
     createUserWithEmailAndPassword(auth, email, pass)
-      .then(() => {
-        Alert('Cuenta creada');
+      .then((userCredential) => {
+        navegation.navigate('Home');
+        Alert.alert('Cuenta creada. Bienvenido');
         const user = userCredential.user;
-        console.log(user);
       })
       .catch(err => {
-        Alert(err);
-        // console.log(err);
+        Alert.alert(err.message);
       });
   };
 
+  const handleSignIn = () => {
+    signInWithEmailAndPassword(auth, email, pass)
+      .then((userCredential) => {
+        navegation.navigate('Home');
+        Alert.alert('Bienvenido');
+        const user = userCredential.user;
+      })
+      .catch(err => {
+        Alert.alert(err.message);
+      });
+  };
 
   return (
     <KeyboardAvoidingView style={s.screenLogin} behavior="padding">
@@ -63,7 +73,7 @@ const Login = () => {
             ></TextInput>
           </View>
 
-          <TouchableOpacity style={s.LoginButtons}>
+          <TouchableOpacity style={s.LoginButtons} onPress={handleSignIn}>
             <Text style={s.textButton}>Ingresar</Text>
           </TouchableOpacity>
 
