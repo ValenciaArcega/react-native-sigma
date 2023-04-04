@@ -21,9 +21,9 @@ const NavBar = () => {
         <Text style={s.NavBarButtonText}>Inicio</Text>
       </TouchableOpacity>
 
-      <TouchableOpacity onPress={goSearch} style={[s.NavBarButton, { marginTop: -20 }]}>
-        <Icon name="magnify" size={24} color="#181818" />
-        <Text style={s.NavBarButtonText}>Buscar</Text>
+      <TouchableOpacity onPress={goSearch} style={[s.NavBarButton, s.NavBarButtonSearch]}>
+        <Icon name="magnify" size={24} color="#fff" />
+        <Text style={[s.NavBarButtonText, s.NavBarButtonSearchText]}>Buscar</Text>
       </TouchableOpacity>
 
       <TouchableOpacity onPress={goAccount} style={s.NavBarButton}>
