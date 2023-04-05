@@ -1,16 +1,15 @@
 import s from "../../../styles/FormRegisterCarStyles";
+import { useState } from "react";
 import { View, Text, TextInput, TouchableOpacity, KeyboardAvoidingView, ScrollView, Alert } from "react-native";
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
-import { useState } from "react";
 import { db, firebaseApp } from '../../../credentials';
 import { collection, doc, setDoc } from "firebase/firestore";
 import { getAuth } from "firebase/auth";
 
+const auth = getAuth(firebaseApp);
 Icon.loadFont();
 
 const FormRegisterCar = ({ setIsRegistering }) => {
-
-  const auth = getAuth(firebaseApp);
 
   const [car, setCar] = useState({
     nombre: '',
@@ -24,34 +23,35 @@ const FormRegisterCar = ({ setIsRegistering }) => {
   const handleChangeText = (name, value) => setCar({ ...car, [name]: value });
 
   const registerCarData = async () => {
-    try {
-      const user = auth.currentUser;
-      const docRef = doc(collection(db, 'users'), user.email);
-      await setDoc(docRef, {
-        nombre: car.nombre,
-        niv: car.niv,
-        placa: car.placa,
-        verificacion: car.verificacion,
-        tenencia: car.tenencia,
-        engomado: car.engomado
-      });
-      console.log("Document written with ID: ", docRef.id);
-    } catch (e) {
-      console.error("Nope: ", e);
-    }
-    /*
     if (car.nombre === '') Alert.alert('El campo nombre es obligatorio');
-    if (car.niv === '') Alert.alert('El campo niv es obligatorio');
-    if (car.placa === '') Alert.alert('El campo placa es obligatorio');
-    if (car.verificacion === '') Alert.alert('El campo verificacion es obligatorio');
-    if (car.tenencia === '') Alert.alert('El campo tenencia es obligatorio');*/
+    else if (car.niv === '') Alert.alert('El campo niv es obligatorio');
+    else if (car.placa === '') Alert.alert('El campo placa es obligatorio');
+    else if (car.verificacion === '') Alert.alert('El campo verificacion es obligatorio');
+    else if (car.tenencia === '') Alert.alert('El campo tenencia es obligatorio');
+    else if (car.engomado === '') Alert.alert('El campo engomado es obligatorio');
+    else
+      try {
+        const user = auth.currentUser;
+        const docRef = doc(collection(db, 'users'), user.email);
+        await setDoc(docRef, {
+          nombre: car.nombre,
+          niv: car.niv,
+          placa: car.placa,
+          verificacion: car.verificacion,
+          tenencia: car.tenencia,
+          engomado: car.engomado
+        });
+        Alert.alert('Datos registrados con exito ✅');
+        // console.log("Document written with ID: ", docRef.id);
+      } catch (e) {
+        console.error("Error: ", e);
+      }
   };
 
   return (
-    <KeyboardAvoidingView behavior="padding" style={{ marginTop: 24, flex: 1 }} >
+    <KeyboardAvoidingView behavior="padding" style={{ marginTop: 32, flex: 1 }} >
       <ScrollView>
         <View style={s.Form}>
-
           <TouchableOpacity onPress={() => { setIsRegistering(false); }} style={s.ButtonBackProfile}>
             <Icon name="close-circle" size={26} color="#f03e3e" />
             <Text style={{ marginLeft: 4, fontSize: 18, color: '#f03e3e' }}>Cancelar</Text>
@@ -92,9 +92,7 @@ const FormRegisterCar = ({ setIsRegistering }) => {
           <TouchableOpacity onPress={() => { registerCarData(); }} style={s.ButtonRegisterCar}>
             <Text style={s.ButtonRegisterCarText}>Registrar mis datos</Text>
           </TouchableOpacity>
-
         </View>
-
       </ScrollView>
     </KeyboardAvoidingView>
   );

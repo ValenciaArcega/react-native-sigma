@@ -13,14 +13,13 @@ const s = StyleSheet.create({
   FormTitle: {
     marginTop: 24,
     marginLeft: 16,
-    fontSize: 32,
+    fontSize: 34,
     fontWeight: 700,
     letterSpacing: -1,
   },
   ContainerInput: {
     width: '90%',
     marginTop: 16,
-    // backgroundColor: 'red',
     alignSelf: 'center',
   },
   ContainerInputText: {
@@ -45,6 +44,14 @@ const s = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: '#1c7ed6',
+    shadowColor: 'black',
+    shadowOpacity: 0.15,
+    shadowRadius: 8,
+    shadowOffset: {
+      height: 6,
+      width: 0
+    }
+
   },
   ButtonRegisterCarText: {
     color: '#fff',

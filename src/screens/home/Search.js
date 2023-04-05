@@ -1,5 +1,5 @@
-import { Text } from "react-native";
 import NavBar from '../../components/NavBar';
+import { Text } from "react-native";
 
 const Search = () => {
   return (

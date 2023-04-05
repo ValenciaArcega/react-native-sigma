@@ -1,31 +1,22 @@
-import { View, Image, Text, KeyboardAvoidingView, TextInput, ScrollView, TouchableOpacity, Alert } from 'react-native';
 import s from "../styles/LoginStyles";
 import { useState } from "react";
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth';
+import { View, Image, Text, KeyboardAvoidingView, TextInput, ScrollView, TouchableOpacity, Alert } from 'react-native';
 import { firebaseApp } from '../credentials';
-// import { useNavigation } from "@react-navigation/native";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth';
+
+const auth = getAuth(firebaseApp);
 
 const Login = () => {
 
   const [email, setEmail] = useState('');
   const [pass, setPass] = useState('');
 
-  const auth = getAuth(firebaseApp);
-  // const navegation = useNavigation();
-
-  /*useEffect(() => {
-    auth.onAuthStateChanged(user => {
-      if (user) navegation.replace('Home');
-    });
-  }, []);*/
-
   const handleCreateUser = () => {
     createUserWithEmailAndPassword(auth, email, pass)
       .then((userCredential) => {
-        // navegation.navigate('Home');
         Alert.alert('Cuenta creada. Bienvenido');
         const user = userCredential.user;
-        Alert.alert(user.email);
+        // Alert.alert(user.email);
       })
       .catch(err => {
         Alert.alert(err.message);
@@ -35,9 +26,8 @@ const Login = () => {
   const handleSignIn = () => {
     signInWithEmailAndPassword(auth, email, pass)
       .then((userCredential) => {
-        // navegation.navigate('Home');
         const user = userCredential.user;
-        Alert.alert('Bienvenido' + user.email);
+        // Alert.alert('Bienvenido ' + user.email);
       })
       .catch(err => {
         Alert.alert(err.message);
@@ -46,7 +36,6 @@ const Login = () => {
 
   return (
     <KeyboardAvoidingView style={s.screenLogin} behavior="padding">
-
       <View style={s.Login}>
         <ScrollView style={s.LoginScrollView}>
           <Image style={s.LoginImage} source={require('../../assets/img/login-userDoor.png')} />
@@ -72,16 +61,14 @@ const Login = () => {
           </View>
 
           <TouchableOpacity style={s.LoginButtons} onPress={handleSignIn}>
-            <Text style={s.textButton}>Ingresar</Text>
+            <Text style={s.textButton}>Entrar</Text>
           </TouchableOpacity>
 
           <TouchableOpacity style={[s.LoginButtons, s.RegisterButton]} onPress={handleCreateUser}>
             <Text style={s.textButton}>Registrarme</Text>
           </TouchableOpacity>
-
         </ScrollView>
       </View>
-
     </KeyboardAvoidingView >
   );
 };

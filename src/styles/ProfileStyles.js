@@ -12,11 +12,12 @@ const s = StyleSheet.create({
   ButtonSignOut: {
     width: "80%",
     height: 48,
+    marginTop: 20,
     borderRadius: 12,
     alignSelf: 'center',
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: "red",
+    backgroundColor: "#f03e3e",
   },
   ButtonSignOutText: {
     color: 'white',
@@ -37,7 +38,7 @@ const s = StyleSheet.create({
   ButtonRegisterCarText: {
     color: '#fff',
     fontWeight: 600,
-    fontSize: 16
+    fontSize: 18
   },
 });
 

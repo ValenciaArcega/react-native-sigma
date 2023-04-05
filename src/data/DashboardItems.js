@@ -1,3 +1,5 @@
+'use strict';
+
 const dashBoardData = [
   {
     name: 'Verificación',

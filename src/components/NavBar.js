@@ -1,6 +1,5 @@
-import { View, Text, TouchableOpacity } from "react-native";
 import s from "../styles/NavBarStyles";
-// import Icon from "react-native-vector-icons/MaterialIcons";
+import { View, Text, TouchableOpacity } from "react-native";
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import { useNavigation } from "@react-navigation/native";
 
@@ -16,7 +15,6 @@ const NavBar = () => {
 
   return (
     <View style={s.NavBar}>
-
       <TouchableOpacity onPress={goDashboard} style={s.NavBarButton}>
         <Icon name="monitor-dashboard" size={24} color="#181818" />
         <Text style={s.NavBarButtonText}>Panel</Text>
@@ -31,7 +29,6 @@ const NavBar = () => {
         <Icon name="account" size={24} color="#181818" />
         <Text style={s.NavBarButtonText}>Cuenta</Text>
       </TouchableOpacity>
-
     </View>
   );
 };

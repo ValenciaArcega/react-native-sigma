@@ -1,21 +1,20 @@
-import { firebaseApp } from '../../credentials';
-import { getAuth } from "firebase/auth";
-import { useState } from "react";
-import { SafeAreaView, View, Text, TouchableOpacity } from "react-native";
-import { Alert } from "react-native";
 import s from "../../styles/ProfileStyles";
-import { useNavigation } from "@react-navigation/native";
-import FormRegisterCar from "./profile/FormRegisterCar";
 import NavBar from "../../components/NavBar";
+import FormRegisterCar from "./profile/FormRegisterCar";
+import { useState } from "react";
+import { SafeAreaView, View, Text, TouchableOpacity, Alert } from "react-native";
+import { useNavigation } from "@react-navigation/native";
+import { getAuth } from "firebase/auth";
+import { firebaseApp } from '../../credentials';
+
+const auth = getAuth(firebaseApp);
 
 const Profile = () => {
 
-  const auth = getAuth(firebaseApp);
+  const [isRegistering, setIsRegistering] = useState(false);
   const navigation = useNavigation();
 
-  const [isRegistering, setIsRegistering] = useState(false);
-
-  const getOut = () => {
+  const signOutUser = () => {
     auth.signOut()
       .then(() => {
         navigation.replace('Login');
@@ -32,15 +31,15 @@ const Profile = () => {
       <SafeAreaView style={s.ScreenProfile}>
         <View style={s.Profile}>
           <TouchableOpacity
-            style={s.ButtonSignOut}
-            onPress={getOut}>
-            <Text style={s.ButtonSignOutText}>Cerrar Sesión</Text>
+            style={s.ButtonRegisterCar}
+            onPress={() => { setIsRegistering(true); }}>
+            <Text style={s.ButtonRegisterCarText}>Actualizar mis datos</Text>
           </TouchableOpacity>
 
           <TouchableOpacity
-            style={s.ButtonRegisterCar}
-            onPress={() => { setIsRegistering(true); }}>
-            <Text style={s.ButtonRegisterCarText}>Registrar mis datos</Text>
+            style={s.ButtonSignOut}
+            onPress={signOutUser}>
+            <Text style={s.ButtonSignOutText}>Cerrar Sesión</Text>
           </TouchableOpacity>
         </View>
         <NavBar />
