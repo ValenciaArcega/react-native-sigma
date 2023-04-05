@@ -3,6 +3,7 @@ import s from "../styles/NavBarStyles";
 // import Icon from "react-native-vector-icons/MaterialIcons";
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import { useNavigation } from "@react-navigation/native";
+
 Icon.loadFont();
 
 const NavBar = () => {
