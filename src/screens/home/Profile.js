@@ -1,17 +1,16 @@
-import { SafeAreaView, View, Text, TouchableOpacity } from "react-native";
-import s from "../../styles/ProfileStyles";
-import { initializeApp } from "firebase/app";
-import { firebaseConfig } from '../../firebase';
-import { useNavigation } from "@react-navigation/native";
+import { firebaseApp } from '../../credentials';
 import { getAuth } from "firebase/auth";
-import { Alert } from "react-native";
-import NavBar from "../../components/NavBar";
 import { useState } from "react";
+import { SafeAreaView, View, Text, TouchableOpacity } from "react-native";
+import { Alert } from "react-native";
+import s from "../../styles/ProfileStyles";
+import { useNavigation } from "@react-navigation/native";
 import FormRegisterCar from "./profile/FormRegisterCar";
+import NavBar from "../../components/NavBar";
 
 const Profile = () => {
-  const app = initializeApp(firebaseConfig);
-  const auth = getAuth(app);
+
+  const auth = getAuth(firebaseApp);
   const navigation = useNavigation();
 
   const [isRegistering, setIsRegistering] = useState(false);

@@ -7,7 +7,7 @@ import Login from '../screens/Login';
 
 const Stack = createNativeStackNavigator();
 
-const Home = () => {
+const Home = ({ userMail }) => {
 
   return (
     <NavigationContainer independent="true">
@@ -17,7 +17,7 @@ const Home = () => {
 
         <Stack.Screen name="Search" component={Search} options={{ headerShown: false, animation: "none" }}></Stack.Screen>
 
-        <Stack.Screen name="Profile" component={Profile} options={{ headerShown: false, animation: "none" }}></Stack.Screen>
+        <Stack.Screen name="Profile" component={Profile} options={{ headerShown: false, animation: "none" }}  ></Stack.Screen>
 
         <Stack.Screen name="Login" component={Login} options={{ headerShown: false, animation: "slide_from_bottom" }}></Stack.Screen>
 
@@ -26,6 +26,7 @@ const Home = () => {
         }} ></Stack.Screen>
 
       </Stack.Navigator>
+
     </NavigationContainer>
   );
 };

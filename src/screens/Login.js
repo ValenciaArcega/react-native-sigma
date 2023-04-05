@@ -1,33 +1,31 @@
 import { View, Image, Text, KeyboardAvoidingView, TextInput, ScrollView, TouchableOpacity, Alert } from 'react-native';
 import s from "../styles/LoginStyles";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth';
-import { initializeApp } from "firebase/app";
-import { firebaseConfig } from '../firebase';
-import { useNavigation } from "@react-navigation/native";
+import { firebaseApp } from '../credentials';
+// import { useNavigation } from "@react-navigation/native";
 
 const Login = () => {
 
   const [email, setEmail] = useState('');
   const [pass, setPass] = useState('');
-  const app = initializeApp(firebaseConfig);
-  const auth = getAuth(app);
-  const navegation = useNavigation();
 
-  useEffect(() => {
-    const unSuscribed = auth.onAuthStateChanged(user => {
+  const auth = getAuth(firebaseApp);
+  // const navegation = useNavigation();
+
+  /*useEffect(() => {
+    auth.onAuthStateChanged(user => {
       if (user) navegation.replace('Home');
     });
-
-    return unSuscribed;
-  }, []);
+  }, []);*/
 
   const handleCreateUser = () => {
     createUserWithEmailAndPassword(auth, email, pass)
       .then((userCredential) => {
-        navegation.navigate('Home');
+        // navegation.navigate('Home');
         Alert.alert('Cuenta creada. Bienvenido');
         const user = userCredential.user;
+        Alert.alert(user.email);
       })
       .catch(err => {
         Alert.alert(err.message);
@@ -37,9 +35,9 @@ const Login = () => {
   const handleSignIn = () => {
     signInWithEmailAndPassword(auth, email, pass)
       .then((userCredential) => {
-        navegation.navigate('Home');
-        Alert.alert('Bienvenido');
+        // navegation.navigate('Home');
         const user = userCredential.user;
+        Alert.alert('Bienvenido' + user.email);
       })
       .catch(err => {
         Alert.alert(err.message);

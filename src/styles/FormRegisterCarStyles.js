@@ -35,6 +35,20 @@ const s = StyleSheet.create({
     paddingHorizontal: 8,
     fontSize: 18,
     backgroundColor: '#fff',
+  },
+  ButtonRegisterCar: {
+    height: 52,
+    width: '90%',
+    marginTop: 20,
+    borderRadius: 12,
+    alignSelf: 'center',
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: '#1c7ed6',
+  },
+  ButtonRegisterCarText: {
+    color: '#fff',
+    fontSize: 18
   }
 });
 

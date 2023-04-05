@@ -21,7 +21,6 @@ const s = StyleSheet.create({
     alignItems: 'flex-start',
     justifyContent: 'center',
     paddingLeft: 16,
-    shadowOpacity: 0.8,
   },
   DashboardItemContainer: {
     shadowColor: 'black',
