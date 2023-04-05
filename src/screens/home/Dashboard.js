@@ -11,16 +11,16 @@ const Dashboard = () => {
         <Text style={s.DashboardTitle}>SmartMotor</Text>
         <View style={s.DashboardItems}>
           {
-            dashBoardData.map(el => {
+            dashBoardData.map(i => {
               return (
                 <View style={s.DashboardItemContainer}>
-                  <LinearGradient colors={['#1c7ed6', '#4dabf7']}
+                  <LinearGradient colors={['#fff', '#fff']}
                     start={{ x: 0, y: 1 }}
                     end={{ x: 1, y: 0 }}
                     style={s.DashboardItem}>
-                    <Text style={s.DashboardItemTextTitle}>{el.name}</Text>
-                    <Text style={s.DashboardItemTextDate}>{el.date}</Text>
-                    <Text style={s.DashboardItemTextCounter}>Días restantes para el pago: {el.remainingDays}</Text>
+                    <Text style={s.DashboardItemTextTitle}>{i.name}</Text>
+                    <Text style={s.DashboardItemTextDate}>{i.date}</Text>
+                    <Text style={s.DashboardItemTextCounter}>Días restantes para el pago: {i.remainingDays}</Text>
                   </LinearGradient>
                 </View>
               );

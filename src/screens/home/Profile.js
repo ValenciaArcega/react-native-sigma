@@ -1,4 +1,4 @@
-import { Text, TouchableOpacity } from "react-native";
+import { SafeAreaView, View, Text, TouchableOpacity } from "react-native";
 import s from "../../styles/ProfileStyles";
 import { initializeApp } from "firebase/app";
 import { firebaseConfig } from '../../firebase';
@@ -23,14 +23,25 @@ const Profile = () => {
   };
 
   return (
-    <>
-      <TouchableOpacity
-        style={s.ButtonSignOut}
-        onPress={getOut}>
-        <Text style={s.ButtonSignOutText}>Cerrar Sesión</Text>
-      </TouchableOpacity>
+    <SafeAreaView style={s.ScreenProfile}>
+
+      <View style={s.Profile}>
+        <TouchableOpacity
+          style={s.ButtonSignOut}
+          onPress={getOut}>
+          <Text style={s.ButtonSignOutText}>Cerrar Sesión</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity
+          style={s.ButtonRegisterCar}
+          onPress={getOut}>
+          <Text style={s.ButtonRegisterCarText}>Registrar mis datos</Text>
+        </TouchableOpacity>
+
+      </View>
       <NavBar />
-    </>
+
+    </SafeAreaView>
   );
 };
 

@@ -35,19 +35,19 @@ const s = StyleSheet.create({
   DashboardItemTextTitle: {
     fontSize: 24,
     fontWeight: 700,
-    color: '#fff',
+    color: '#181818',
   },
   DashboardItemTextDate: {
     marginTop: 18,
     fontSize: 20,
     fontWeight: 500,
-    color: '#fff',
+    color: '#1c7ed6',
   },
   DashboardItemTextCounter: {
     marginTop: 8,
     fontSize: 16,
     fontWeight: 400,
-    color: '#fff',
+    color: '#181818',
   },
 });
 
