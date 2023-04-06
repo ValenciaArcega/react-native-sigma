@@ -69,8 +69,13 @@ const s = StyleSheet.create({
     fontWeight: 500
   },
   RegisterButton: {
+    marginTop: 0,
     backgroundColor: "#339af0"
   },
+  TextBetweenButtons: {
+    alignSelf: 'center',
+    marginVertical: 8
+  }
 });
 
 export default s;

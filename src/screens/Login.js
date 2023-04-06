@@ -64,8 +64,9 @@ const Login = () => {
             <Text style={s.textButton}>Entrar</Text>
           </TouchableOpacity>
 
+          <Text style={s.TextBetweenButtons}>¿No tienes una cuenta?</Text>
           <TouchableOpacity style={[s.LoginButtons, s.RegisterButton]} onPress={handleCreateUser}>
-            <Text style={s.textButton}>Registrarme</Text>
+            <Text style={s.textButton}>Registrar datos</Text>
           </TouchableOpacity>
         </ScrollView>
       </View>
