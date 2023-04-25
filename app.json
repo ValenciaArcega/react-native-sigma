@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "smartMotor-reactNative",
-    "slug": "smartMotor-reactNative",
+    "name": "sigma-reactNative",
+    "slug": "sigma-reactNative",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",

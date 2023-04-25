@@ -1,4 +1,4 @@
-import s from "../../styles/ProfileStyles";
+import s from "../../styles/st-profile";
 import NavBar from "../../components/NavBar";
 import FormRegisterCar from "./profile/FormRegisterCar";
 import { useState } from "react";

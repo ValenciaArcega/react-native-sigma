@@ -9,7 +9,7 @@ const s = StyleSheet.create({
   },
   //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
   Login: {
-    height: "90%",
+    height: "85%",
     width: "90%",
     marginTop: 12,
     paddingBottom: 2,
@@ -68,14 +68,21 @@ const s = StyleSheet.create({
     color: "white",
     fontWeight: 500
   },
-  RegisterButton: {
-    marginTop: 0,
-    backgroundColor: "#339af0"
-  },
+
   TextBetweenButtons: {
     alignSelf: 'center',
-    marginVertical: 8
-  }
+    marginTop: 10
+  },
+
+  RegisterButton: {
+    marginTop: 4,
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
+  textGoRegister: {
+    color: "#339af0"
+  },
+
 });
 
 export default s;

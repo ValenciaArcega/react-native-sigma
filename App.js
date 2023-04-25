@@ -10,18 +10,13 @@ export default function App() {
 
   const [globalUser, setGlobalUser] = useState(null);
 
-  onAuthStateChanged(auth, (firebaseUser) => {
-    if (firebaseUser) {
-      setGlobalUser(firebaseUser);
+  onAuthStateChanged(auth, (fU) => {
+    if (fU) {
+      setGlobalUser(fU);
     } else {
       setGlobalUser(null);
     }
   });
 
-  return (
-    <>{globalUser
-      ? <Home />
-      : <Login />
-    }</>
-  );
+  return <>{globalUser ? <Home /> : <Login />}</>;
 };

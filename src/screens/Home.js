@@ -12,7 +12,7 @@ const Home = () => {
   return (
     <NavigationContainer independent="true">
       <Stack.Navigator initialRouteName="Dashboard">
-        <Stack.Screen name="Dashboard" component={Dashboard} options={{ headerShown: false, animation: "none", headerTransparent: true, headerBlurEffect: true }}></Stack.Screen>
+        <Stack.Screen name="Dashboard" component={Dashboard} options={{ headerShown: false, animation: "none" }}></Stack.Screen>
 
         <Stack.Screen name="Search" component={Search} options={{ headerShown: false, animation: "none" }}></Stack.Screen>
 

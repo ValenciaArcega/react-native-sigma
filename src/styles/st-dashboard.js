@@ -38,9 +38,9 @@ const s = StyleSheet.create({
   },
   DashboardItemTextDate: {
     marginTop: 18,
-    fontSize: 20,
+    fontSize: 18,
     fontWeight: 500,
-    color: '#1c7ed6',
+    color: '#fff',
   },
   DashboardItemTextCounter: {
     marginTop: 8,
