@@ -1,4 +1,4 @@
-import s from "../styles/st-registerUser";
+import s from "../styles/st-signUp";
 import { useState } from "react";
 import { Alert, ScrollView, TextInput, KeyboardAvoidingView, Text, TouchableOpacity, View } from 'react-native';
 import { firebaseApp } from '../credentials';
@@ -7,16 +7,15 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 
 Icon.loadFont();
 
-const Register = ({ setIsRegistering }) => {
-
+export function SignUp({ setIsRegistering }) {
+  // var
   const auth = getAuth(firebaseApp);
   const [email, setEmail] = useState('');
   const [pass, setPass] = useState('');
-
+  // fn
   const handleCreateUser = () => {
     createUserWithEmailAndPassword(auth, email, pass)
       .then((userCredential) => {
-        // Alert.alert('Cuenta creada ✅');
         const user = userCredential.user;
         // Alert.alert(user.email);
       })
@@ -24,7 +23,7 @@ const Register = ({ setIsRegistering }) => {
         Alert.alert(err.message);
       });
   };
-
+  //cm
   return (
     <KeyboardAvoidingView behavior="padding" style={s.keyboard}>
       <ScrollView>
@@ -62,6 +61,4 @@ const Register = ({ setIsRegistering }) => {
       </ScrollView>
     </KeyboardAvoidingView >
   );
-};
-
-export default Register;
+}

@@ -1,4 +1,4 @@
-import s from "../styles/NavBarStyles";
+import s from "../styles/st-navBar";
 import { View, Text, TouchableOpacity } from "react-native";
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import { useNavigation } from "@react-navigation/native";

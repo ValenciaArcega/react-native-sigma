@@ -1,4 +1,4 @@
-import s from "../../../styles/FormRegisterCarStyles";
+import s from "../../../styles/st-formRegisterCar";
 import { useState } from "react";
 import { View, Text, TextInput, TouchableOpacity, KeyboardAvoidingView, ScrollView, Alert } from "react-native";
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';

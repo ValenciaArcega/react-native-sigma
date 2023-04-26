@@ -17,7 +17,7 @@ const Profile = () => {
   const signOutUser = () => {
     auth.signOut()
       .then(() => {
-        navigation.replace('Login');
+        navigation.replace('Sign');
       })
       .catch(err => {
         Alert.alert(err.message);
