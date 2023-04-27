@@ -7,11 +7,9 @@ import { makeDark } from "../styles/colors";
 
 export function SingIn({ setIsRegistering }) {
   // var
-  const [dark, setDark] = useState(null);
   const auth = getAuth(firebaseApp);
   const [email, setEmail] = useState('');
   const [pass, setPass] = useState('');
-  let a = dark;
   // fn 
   const handleSignIn = () => {
     signInWithEmailAndPassword(auth, email, pass)
@@ -26,9 +24,9 @@ export function SingIn({ setIsRegistering }) {
   // hooks
   // cm
   return (
-    <KeyboardAvoidingView style={s.screenLogin} behavior="padding">
-      <View style={s.Login}>
-        <ScrollView style={s.LoginScrollView}>
+    <KeyboardAvoidingView style={s.container} behavior="padding">
+      <View style={s.login}>
+        <ScrollView style={s.loginScrollView}>
           <Image style={s.LoginImage} source={require('../../assets/img/login-userDoor.png')} />
           <Text style={s.LoginTitle}>Inicia Sesión</Text>
 
@@ -51,15 +49,19 @@ export function SingIn({ setIsRegistering }) {
             ></TextInput>
           </View>
 
-          <TouchableOpacity style={s.LoginButtons} onPress={handleSignIn}>
-            <Text style={s.textButton}>Entrar</Text>
+          <TouchableOpacity
+            style={s.btnSignIn}
+            onPress={handleSignIn}>
+            <Text style={s.btnSignInText}>Entrar</Text>
           </TouchableOpacity>
 
           <Text style={s.TextBetweenButtons}>¿No tienes una cuenta?</Text>
 
-          <TouchableOpacity style={s.RegisterButton} onPress={() => setIsRegistering(true)}>
-            <Text style={[s.textButton, s.textGoRegister]}>Registrate</Text>
-          </TouchableOpacity>
+          <Text
+            style={[s.btnSignInText, s.labelGoSignUp]}
+            onPress={() => setIsRegistering(true)}>
+            Registrate
+          </Text>
         </ScrollView>
       </View>
     </KeyboardAvoidingView >

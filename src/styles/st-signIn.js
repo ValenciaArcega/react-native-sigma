@@ -2,15 +2,14 @@ import { StyleSheet } from "react-native";
 import { colors } from "./colors";
 
 const s = StyleSheet.create({
-  screenLogin: {
+  container: {
     flex: 1,
     alignItems: "center",
     justifyContent: "center",
     backgroundColor: colors.mainColor
   },
   //////////////////////////////////////////
-  Login: {
-    height: "85%",
+  login: {
     width: "90%",
     marginTop: 12,
     paddingBottom: 2,
@@ -18,7 +17,7 @@ const s = StyleSheet.create({
     borderRadius: 12,
     backgroundColor: "#fff"
   },
-  LoginScrollView: {
+  loginScrollView: {
     width: "100%",
     height: "90%",
   },
@@ -31,12 +30,12 @@ const s = StyleSheet.create({
     alignSelf: "center",
     fontSize: 32,
     fontWeight: 800,
-    letterSpacing: -1
+    letterSpacing: -0.7
   },
-  //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  ////////////////////////////////////////////
   LoginContainerInput: {
     alignSelf: "center",
-    width: "90%",
+    width: "82%",
   },
   // text above inputs
   LoginInputHeader: {
@@ -47,40 +46,41 @@ const s = StyleSheet.create({
   LoginInput: {
     height: 44,
     width: "100%",
-    marginTop: 2,
+    marginTop: 3,
     paddingLeft: 12,
     fontSize: 16,
-    backgroundColor: "#e8e8e8",
+    backgroundColor: "#f1f1f1",
     borderRadius: 8,
+    borderBottomColor: '#4998de',
+    borderBottomRightRadius: 0,
+    borderBottomLeftRadius: 0,
+    borderBottomWidth: 2.2,
   },
-  //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-  LoginButtons: {
-    height: 44,
-    width: "90%",
+  /////////////////////////////////////////////
+  btnSignIn: {
+    height: 48,
+    width: "82%",
     marginTop: 20,
     borderRadius: 8,
-    alignItems: "center",
+    // alignItems: "center",
     alignSelf: "center",
     justifyContent: "center",
     backgroundColor: "#1c7ed6"
   },
-  textButton: {
+  btnSignInText: {
     fontSize: 18,
     color: "white",
+    alignSelf: "center",
     fontWeight: 500
   },
 
   TextBetweenButtons: {
     alignSelf: 'center',
-    marginTop: 10
+    marginTop: 16
   },
 
-  RegisterButton: {
+  labelGoSignUp: {
     marginTop: 4,
-    alignItems: 'center',
-    justifyContent: 'center'
-  },
-  textGoRegister: {
     color: "#339af0"
   },
 

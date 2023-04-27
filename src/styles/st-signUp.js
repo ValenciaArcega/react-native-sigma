@@ -4,53 +4,51 @@ import { colors } from "./colors";
 const s = StyleSheet.create({
   keyboard: {
     flex: 1,
-    backgroundColor: '#1c7ed6'
+    backgroundColor: '#f2f2f7'
   },
-  containerRegister: {
+  signUp: {
     width: '90%',
-    marginTop: 44,
+    marginTop: 32,
+    marginBottom: 16,
+    paddingBottom: 8,
     borderRadius: 15,
+    borderWidth: 2,
     alignSelf: 'center',
     alignItems: 'center',
+    borderColor: '#d8d8d8',
     backgroundColor: '#fff'
   },
-  buttonBackLogin: {
-    height: 44,
-    width: 96,
-    marginLeft: 10,
-    marginTop: 6,
-    alignSelf: 'flex-start',
-    flexDirection: 'row',
-    gap: 8,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  buttonBackLoginText: {
-    fontSize: 17,
+  textGoSignIn: {
+    marginBottom: 12,
+    fontSize: 15,
     fontWeight: 500,
     color: '#1c7ed6'
   },
   formTitle: {
-    marginVertical: 15,
+    marginVertical: 25,
     fontSize: 24,
     fontWeight: 700,
   },
-  formText: {
-    width: '86%',
+  signUpLabel: {
+    width: '84%',
     fontSize: 18,
     fontWeight: 600,
     textAlign: 'justify',
     color: '#181818'
   },
-  formInput: {
+  signUpInput: {
     height: 48,
-    width: '86%',
+    width: '84%',
     marginTop: 4,
     marginBottom: 20,
     paddingHorizontal: 8,
     fontSize: 16,
     borderRadius: 8,
-    backgroundColor: '#e9e9e9'
+    backgroundColor: '#f1f1f1',
+    borderBottomColor: colors.mainColor,
+    borderBottomRightRadius: 0,
+    borderBottomLeftRadius: 0,
+    borderBottomWidth: 2.2,
   },
   passTipTitle: {
     width: '80%',
@@ -63,10 +61,12 @@ const s = StyleSheet.create({
   passTip: {
     width: '80%',
     fontWeight: 400,
+    lineHeight: 20,
     textAlign: 'left'
   },
-  buttonRegister: {
-    width: '85%',
+
+  btnSignUp: {
+    width: '84%',
     height: 48,
     marginVertical: 20,
     borderRadius: 8,
@@ -81,8 +81,9 @@ const s = StyleSheet.create({
       width: 0
     }
   },
-  buttonRegisterText: {
+  btnSignUpText: {
     fontSize: 16,
+    fontWeight: 600,
     color: '#fff'
   }
 });
