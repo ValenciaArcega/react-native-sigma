@@ -11,13 +11,15 @@ const s = StyleSheet.create({
   //////////////////////////////////////////
   login: {
     width: "90%",
-    marginTop: 12,
-    paddingBottom: 2,
-    alignItems: "center",
+    marginTop: 32,
+    paddingBottom: 24,
+    marginBottom: 24,
     borderRadius: 12,
+    alignSelf: 'center',
     backgroundColor: "#fff"
   },
   loginScrollView: {
+    // alignItems: "center",
     width: "100%",
     height: "90%",
   },
@@ -62,25 +64,45 @@ const s = StyleSheet.create({
     width: "82%",
     marginTop: 20,
     borderRadius: 8,
-    // alignItems: "center",
     alignSelf: "center",
     justifyContent: "center",
     backgroundColor: "#1c7ed6"
   },
+  btnSignInGoogle: {
+    backgroundColor: "#fff",
+    flexDirection: 'row',
+    gap: 10,
+    alignItems: 'center',
+    shadowColor: 'black',
+    shadowOpacity: 0.2,
+    shadowRadius: 2,
+    shadowOffset: {
+      height: 2,
+      width: 0,
+    }
+  },
+  btnSignInGoogleImage: {
+    height: 26,
+    width: 26,
+  },
+  btnSignInGoogleText: {
+    color: "black",
+  },
   btnSignInText: {
-    fontSize: 18,
+    fontSize: 16,
     color: "white",
     alignSelf: "center",
     fontWeight: 500
   },
 
-  TextBetweenButtons: {
+  labelGSU: {
+    fontSize: 16,
+    gap: 4,
     alignSelf: 'center',
     marginTop: 16
   },
 
   labelGoSignUp: {
-    marginTop: 4,
     color: "#339af0"
   },
 

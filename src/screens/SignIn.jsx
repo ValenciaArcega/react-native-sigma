@@ -25,8 +25,8 @@ export function SingIn({ setIsRegistering }) {
   // cm
   return (
     <KeyboardAvoidingView style={s.container} behavior="padding">
-      <View style={s.login}>
-        <ScrollView style={s.loginScrollView}>
+      <ScrollView style={s.loginScrollView}>
+        <View style={s.login}>
           <Image style={s.LoginImage} source={require('../../assets/img/login-userDoor.png')} />
           <Text style={s.LoginTitle}>Inicia Sesión</Text>
 
@@ -55,15 +55,23 @@ export function SingIn({ setIsRegistering }) {
             <Text style={s.btnSignInText}>Entrar</Text>
           </TouchableOpacity>
 
-          <Text style={s.TextBetweenButtons}>¿No tienes una cuenta?</Text>
+          <TouchableOpacity
+            style={[s.btnSignIn, s.btnSignInGoogle]}
+            onPress={handleSignIn}>
+            <Image style={s.btnSignInGoogleImage} source={require('../../assets/img/google.png')} />
+            <Text style={[s.btnSignInText, s.btnSignInGoogleText]}>Ingresar con Google</Text>
+          </TouchableOpacity>
 
-          <Text
-            style={[s.btnSignInText, s.labelGoSignUp]}
-            onPress={() => setIsRegistering(true)}>
-            Registrate
+          <Text style={s.labelGSU}>¿No tienes una cuenta?
+            <Text
+              style={[s.btnSignInText, s.labelGoSignUp]}
+              onPress={() => setIsRegistering(true)}>
+              Registrate
+            </Text>
           </Text>
-        </ScrollView>
-      </View>
+
+        </View>
+      </ScrollView>
     </KeyboardAvoidingView >
   );
 }
