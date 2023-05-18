@@ -1,28 +1,23 @@
 import s from "../styles/st-signIn";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { View, Image, Text, KeyboardAvoidingView, TextInput, ScrollView, TouchableOpacity, Alert } from 'react-native';
 import { firebaseApp } from '../credentials';
 import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
-import { makeDark } from "../styles/colors";
 
 export function SingIn({ setIsRegistering }) {
-  // var
   const auth = getAuth(firebaseApp);
   const [email, setEmail] = useState('');
   const [pass, setPass] = useState('');
-  // fn 
-  const handleSignIn = () => {
+
+  function handleSignIn() {
     signInWithEmailAndPassword(auth, email, pass)
       .then((userCredential) => {
         const user = userCredential.user;
         // Alert.alert('Bienvenido ' + user.email);
       })
-      .catch(err => {
-        Alert.alert(err.message);
-      });
+      .catch(err => Alert.alert(err.message));
   };
-  // hooks
-  // cm
+
   return (
     <KeyboardAvoidingView style={s.container} behavior="padding">
       <ScrollView style={s.loginScrollView}>

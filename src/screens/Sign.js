@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { SignUp } from "./SignUp";
-import { SingIn } from "./SignIn";
+import { SignUp } from "../views/SignUp";
+import { SingIn } from "../views/SignIn";
 
 export function Sign() {
   const [isRegistering, setIsRegistering] = useState(false);

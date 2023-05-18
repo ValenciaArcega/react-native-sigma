@@ -1,15 +1,16 @@
-import s from "../../styles/st-dashboard";
-import dashBoardData from '../../data/DashboardItems';
-import NavBar from "../../components/NavBar";
+import s from "../styles/st-dashboard";
+// import dashBoardData from '../data/DashboardItems';
+import { NavBar } from "../components/NavBar";
 import { View, Text, SafeAreaView, ScrollView } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 
-const Dashboard = () => {
+export function Dashboard() {
   return (
     <SafeAreaView style={s.Dashboard}>
       <ScrollView>
         <Text style={s.DashboardTitle}>Sigma</Text>
         <View>
+          {/*
           {dashBoardData.map(i => {
             return (
               <View>
@@ -40,11 +41,11 @@ const Dashboard = () => {
               </View>
             );
           })}
+
+          */}
         </View>
       </ScrollView>
       <NavBar />
     </SafeAreaView>
   );
 };
-
-export default Dashboard;

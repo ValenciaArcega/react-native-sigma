@@ -5,24 +5,24 @@ import { useNavigation } from "@react-navigation/native";
 
 Icon.loadFont();
 
-const NavBar = () => {
+export function NavBar() {
 
   const navegation = useNavigation();
 
   const goAccount = () => navegation.replace('Profile');
-  const goSearch = () => navegation.replace('Search');
+  const goGarage = () => navegation.replace('Garage');
   const goDashboard = () => navegation.replace('Dashboard');
 
   return (
     <View style={s.NavBar}>
       <TouchableOpacity onPress={goDashboard} style={s.NavBarButton}>
-        <Icon name="monitor-dashboard" size={24} color="#181818" />
+        <Icon name="car-convertible" size={28} color="#181818" />
         <Text style={s.NavBarButtonText}>Panel</Text>
       </TouchableOpacity>
 
-      <TouchableOpacity onPress={goSearch} style={[s.NavBarButton, s.NavBarButtonSearch]}>
-        <Icon name="magnify" size={24} color="#fff" />
-        <Text style={[s.NavBarButtonText, s.NavBarButtonSearchText]}>Buscar</Text>
+      <TouchableOpacity onPress={goGarage} style={s.NavBarButton}>
+        <Icon name="car-wrench" size={24} color="#181818" />
+        <Text style={s.NavBarButtonText}>Talleres</Text>
       </TouchableOpacity>
 
       <TouchableOpacity onPress={goAccount} style={s.NavBarButton}>
@@ -32,5 +32,3 @@ const NavBar = () => {
     </View>
   );
 };
-
-export default NavBar;

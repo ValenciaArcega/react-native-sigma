@@ -8,22 +8,19 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 Icon.loadFont();
 
 export function SignUp({ setIsRegistering }) {
-  // var
   const auth = getAuth(firebaseApp);
   const [email, setEmail] = useState('');
   const [pass, setPass] = useState('');
-  // fn
-  const handleCreateUser = () => {
+
+  function handleCreateUser() {
     createUserWithEmailAndPassword(auth, email, pass)
       .then((userCredential) => {
         const user = userCredential.user;
         // Alert.alert(user.email);
       })
-      .catch(err => {
-        Alert.alert(err.message);
-      });
+      .catch(err => Alert.alert(err.message));
   };
-  //cm
+
   return (
     <KeyboardAvoidingView behavior="padding" style={s.keyboard}>
       <ScrollView>

@@ -1,9 +1,9 @@
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { Sign } from '../screens/Sign';
-import Dashboard from './home/Dashboard';
-import Search from "./home/Search";
-import Profile from "./home/Profile";
+import { Dashboard } from '../views/Dashboard';
+import { Garage } from "../views/Garage";
+import { Profile } from "../views/Profile";
 
 const Stack = createNativeStackNavigator();
 
@@ -18,8 +18,8 @@ const Home = () => {
           options={{ headerShown: false, animation: "none" }}></Stack.Screen>
 
         <Stack.Screen
-          name="Search"
-          component={Search}
+          name="Garage"
+          component={Garage}
           options={{ headerShown: false, animation: "none" }}></Stack.Screen>
 
         <Stack.Screen

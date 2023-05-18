@@ -1,16 +1,18 @@
-import s from "../../../styles/st-formRegisterCar";
-import { useState } from "react";
-import { View, Text, TextInput, TouchableOpacity, KeyboardAvoidingView, ScrollView, Alert } from "react-native";
+import { s } from "../styles/st-profile";
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
-import { db, firebaseApp } from '../../../credentials';
-import { collection, doc, setDoc } from "firebase/firestore";
+import { NavBar } from "../components/NavBar";
+import { KeyboardAvoidingView, ScrollView, TextInput, View, Text, TouchableOpacity, Alert } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 import { getAuth } from "firebase/auth";
+import { useState } from "react";
+import { db, firebaseApp } from '../credentials';
+import { collection, doc, setDoc } from "firebase/firestore";
 
-const auth = getAuth(firebaseApp);
-Icon.loadFont();
 
-const FormRegisterCar = ({ setIsRegistering }) => {
-
+export function Profile() {
+  Icon.loadFont();
+  const auth = getAuth(firebaseApp);
+  const navigation = useNavigation();
   const [car, setCar] = useState({
     nombre: '',
     niv: '',
@@ -19,6 +21,12 @@ const FormRegisterCar = ({ setIsRegistering }) => {
     tenencia: '',
     engomado: ''
   });
+
+  function signOutUser() {
+    auth.signOut()
+      .then(() => navigation.replace('Sign'))
+      .catch(err => Alert.alert(err.message));
+  };
 
   const handleChangeText = (name, value) => setCar({ ...car, [name]: value });
 
@@ -41,7 +49,7 @@ const FormRegisterCar = ({ setIsRegistering }) => {
         tenencia: car.tenencia,
         engomado: car.engomado
       });
-      Alert.alert('Datos registrados con exito ✅');
+      Alert.alert('Guardado ✅');
       // console.log("Document written with ID: ", docRef.id);
     } catch (e) {
       console.error("Error: ", e);
@@ -52,12 +60,8 @@ const FormRegisterCar = ({ setIsRegistering }) => {
     <KeyboardAvoidingView behavior="padding" style={{ marginTop: 32, flex: 1 }} >
       <ScrollView>
         <View style={s.Form}>
-          <TouchableOpacity onPress={() => setIsRegistering(false)} style={s.ButtonBackProfile}>
-            <Icon name="close-circle" size={26} color="#f03e3e" />
-            <Text style={{ marginLeft: 4, fontSize: 18, color: '#f03e3e' }}>Cancelar</Text>
-          </TouchableOpacity>
 
-          <Text style={s.FormTitle}>Registra tus datos</Text>
+          <Text style={s.FormTitle}>Actualiza tus datos</Text>
 
           <View style={s.ContainerInput}>
             <Text style={s.ContainerInputText}>Nombre</Text>
@@ -92,10 +96,15 @@ const FormRegisterCar = ({ setIsRegistering }) => {
           <TouchableOpacity onPress={() => registerCarData()} style={s.ButtonRegisterCar}>
             <Text style={s.ButtonRegisterCarText}>Registrar mis datos</Text>
           </TouchableOpacity>
+
+          <TouchableOpacity onPress={signOutUser} style={s.ButtonRegisterCar}>
+            <Text style={[s.ButtonRegisterCarText, s.btnSignOutText]}>Cerrar Sesión</Text>
+          </TouchableOpacity>
+
+
         </View>
       </ScrollView>
+      <NavBar />
     </KeyboardAvoidingView>
   );
 };
-
-export default FormRegisterCar;
