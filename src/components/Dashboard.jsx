@@ -1,48 +1,52 @@
 import s from "../styles/st-dashboard";
-// import dashBoardData from '../data/DashboardItems';
+import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 import { NavBar } from "./NavBar";
-import { View, Text, SafeAreaView, ScrollView } from "react-native";
-import { LinearGradient } from "expo-linear-gradient";
+import { View, Text, SafeAreaView, ScrollView, TouchableOpacity } from "react-native";
+import { useNavigation } from "@react-navigation/native";
+
+Icon.loadFont();
 
 export function Dashboard() {
-  return (
-    <SafeAreaView style={s.Dashboard}>
-      <ScrollView>
-        <Text style={s.DashboardTitle}>Sigma</Text>
-        <View>
-          {/*
-          {dashBoardData.map(i => {
-            return (
-              <View>
-                <View style={{
-                  height: 128,
-                  width: '90%',
-                  marginTop: 24,
-                  alignSelf: 'center',
-                  borderRadius: 16,
-                  backgroundColor: 'white',
-                  shadowColor: 'black',
-                  shadowOffset: {
-                    height: 4,
-                    width: 0
-                  },
-                  shadowRadius: 6,
-                  shadowOpacity: 0.2,
-                }}>
-                  <LinearGradient colors={['#1c7ed6', '#339af0']}
-                    start={{ x: 0, y: 1 }}
-                    end={{ x: 1, y: 0 }}
-                    style={s.DashboardItem}>
-                    <Text style={s.DashboardItemTextTitle}>{i.name}</Text>
-                    <Text style={s.DashboardItemTextDate}>{i.date}</Text>
-                    <Text style={s.DashboardItemTextCounter}>Días restantes para el pago: {i.remainingDays}</Text>
-                  </LinearGradient>
-                </View>
-              </View>
-            );
-          })}
+  const navigation = useNavigation();
+  const btnsDiscover = [
+    {
+      icon: 'car-wrench',
+      title: 'Talleres',
+      fn() { navigation.replace('Garage'); }
+    },
+    {
+      icon: 'database-edit-outline',
+      title: 'Mis datos',
+      fn() { navigation.replace('Profile'); }
+    },
+    {
+      icon: 'map-search-outline',
+      title: 'Buscar',
+      fn() { navigation.replace('Garage'); },
+    },
+  ];
 
-          */}
+  return (
+    <SafeAreaView style={s.safeArea__dashboard}>
+      <ScrollView>
+        <Text style={s.dashboard__title}>Hola de nuevo</Text>
+        <View>
+
+          <View style={s.containerDiscover}>
+            <Text style={s.discover__title}>Panel de control</Text>
+
+            <View style={s.discover__gridBtn}>
+              {
+                btnsDiscover.map((item, i) =>
+                  <View key={i} style={s.wrapperBtn}>
+                    <TouchableOpacity onPress={item.fn} style={s.discover__btn}>
+                      <Icon name={item.icon} size={30} color="#1c7ed6" />
+                    </TouchableOpacity>
+                    <Text style={s.wrapperBtnText}>{item.title}</Text>
+                  </View>)
+              }
+            </View>
+          </View>
         </View>
       </ScrollView>
       <NavBar />

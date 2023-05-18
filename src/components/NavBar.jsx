@@ -3,9 +3,9 @@ import { View, Text, TouchableOpacity } from "react-native";
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import { useNavigation } from "@react-navigation/native";
 
+Icon.loadFont();
 
 export function NavBar() {
-  Icon.loadFont();
   const navegation = useNavigation();
 
   const goAccount = () => navegation.replace('Profile');
@@ -15,7 +15,7 @@ export function NavBar() {
   return (
     <View style={s.NavBar}>
       <TouchableOpacity onPress={goDashboard} style={s.NavBarButton}>
-        <Icon name="car-convertible" size={28} color="#181818" />
+        <Icon name="cards" size={24} color="#181818" />
         <Text style={s.NavBarButtonText}>Panel</Text>
       </TouchableOpacity>
 

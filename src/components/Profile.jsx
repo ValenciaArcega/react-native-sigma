@@ -94,7 +94,7 @@ export function Profile() {
           </View>
 
           <TouchableOpacity onPress={() => registerCarData()} style={s.ButtonRegisterCar}>
-            <Text style={s.ButtonRegisterCarText}>Registrar mis datos</Text>
+            <Text style={s.ButtonRegisterCarText}>Actualizar Datos</Text>
           </TouchableOpacity>
 
           <TouchableOpacity onPress={signOutUser} style={s.ButtonRegisterCar}>

@@ -9,7 +9,7 @@ export const s = StyleSheet.create({
     marginLeft: 16,
     fontSize: 28,
     fontWeight: 700,
-    letterSpacing: -1,
+    letterSpacing: -.5,
   },
   ContainerInput: {
     width: '90%',
@@ -58,7 +58,7 @@ export const s = StyleSheet.create({
   },
 
   ButtonRegisterCar: {
-    height: 50,
+    height: 48,
     width: '100%',
     marginTop: 16,
     borderTopWidth: 1,
