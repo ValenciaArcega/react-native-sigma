@@ -37,7 +37,7 @@ export const s = StyleSheet.create({
     fontWeight: '500',
   },
   cardGarage: {
-    height: 232,
+    height: 132,
     width: '90%',
     marginTop: 10,
     padding: 18,
@@ -53,30 +53,73 @@ export const s = StyleSheet.create({
     fontWeight: 700,
     letterSpacing: -.6,
   },
-  cardGarage__features: {
-    marginTop: 2,
-    fontSize: 16,
-  },
-  cardGarage__price: {
-    fontSize: 20,
-    fontWeight: 500,
-  },
   cardGarage__btn: {
-    height: 48,
+    height: 44,
     width: '100%',
-    marginTop: 18,
-    borderRadius: 10,
+    marginTop: 8,
+    borderRadius: 8,
     alignSelf: 'center',
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: '#1c7ed6',
   },
   cardGarage__btnText: {
-    fontSize: 16,
+    fontSize: 18,
     color: '#fff'
+  },
+
+  // map component  
+  garage__title: {
+    width: '90%',
+    marginTop: 72,
+    marginBottom: 12,
+    alignSelf: 'center',
+    fontSize: 28,
+    fontWeight: 800,
+    letterSpacing: -.4,
+  },
+  garage__features: {
+    width: '90%',
+    alignSelf: 'center',
+    marginTop: 4,
+    fontSize: 18,
+  },
+  garage__price: {
+    width: '90%',
+    marginTop: 12,
+    alignSelf: 'center',
+    fontSize: 18,
+  },
+  map: {
+    height: '40%',
+    width: '95%',
+    marginTop: 24,
+    borderRadius: 10,
+    alignSelf: 'center',
+  },
+  btnBackGarage: {
+    height: 42,
+    width: '40%',
+    position: 'absolute',
+    top: 10,
+    left: 10,
+    gap: 6,
+    borderRadius: 50,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: '#fff',
+    shadowColor: 'black',
+    shadowOpacity: 0.1,
+    shadowRadius: 2,
+    shadowOffset: {
+      height: 4,
+      width: 0
+    }
   },
   // other tools
   colorBlue: {
+    fontWeight: 700,
     color: '#1c7ed6',
   }
 });
