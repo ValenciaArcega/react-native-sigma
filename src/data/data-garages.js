@@ -7,6 +7,8 @@ export const data__garages = [
       'Cambio de amortuguadores',
     ],
     price: '$120',
+    latitude: 19.62,
+    longitude: -99.07,
   },
   {
     name: 'CasaCarro Coacalco',
@@ -16,5 +18,7 @@ export const data__garages = [
       'Baja de placas',
     ],
     price: '$60',
+    latitude: -59.62,
+    longitude: 90.07,
   },
 ];

@@ -1,6 +1,6 @@
 import s from "../styles/st-dashboard";
 // import dashBoardData from '../data/DashboardItems';
-import { NavBar } from "../components/NavBar";
+import { NavBar } from "./NavBar";
 import { View, Text, SafeAreaView, ScrollView } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 

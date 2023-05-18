@@ -3,10 +3,9 @@ import { View, Text, TouchableOpacity } from "react-native";
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import { useNavigation } from "@react-navigation/native";
 
-Icon.loadFont();
 
 export function NavBar() {
-
+  Icon.loadFont();
   const navegation = useNavigation();
 
   const goAccount = () => navegation.replace('Profile');

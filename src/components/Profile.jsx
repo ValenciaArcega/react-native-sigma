@@ -1,6 +1,6 @@
 import { s } from "../styles/st-profile";
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
-import { NavBar } from "../components/NavBar";
+import { NavBar } from "./NavBar";
 import { KeyboardAvoidingView, ScrollView, TextInput, View, Text, TouchableOpacity, Alert } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { getAuth } from "firebase/auth";
