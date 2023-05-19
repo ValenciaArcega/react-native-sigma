@@ -12,8 +12,12 @@ export const s = StyleSheet.create({
     letterSpacing: -.5,
   },
   ContainerInput: {
-    width: '90%',
+    width: '85%',
     marginTop: 16,
+    borderBottomColor: "#1665ab",
+    borderBottomWidth: 2,
+    borderBottomRightRadius: 8,
+    borderBottomLeftRadius: 8,
     alignSelf: 'center',
   },
   ContainerInputText: {
