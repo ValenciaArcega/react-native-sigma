@@ -1,21 +1,36 @@
-import s from "../styles/st-signIn";
-import { useState } from "react";
-import { View, Image, Text, KeyboardAvoidingView, TextInput, ScrollView, TouchableOpacity, Alert } from 'react-native';
-import { firebaseApp } from '../credentials';
-import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
+import s from "../styles/st-signIn"
+import { useState } from "react"
+import { View, Image, Text, KeyboardAvoidingView, TextInput, ScrollView, TouchableOpacity, Alert } from 'react-native'
+import { firebaseApp } from '../credentials'
+import { getAuth, signInWithEmailAndPassword } from 'firebase/auth'
+import { messagePass, fail, messageFail, pass } from "../test/log.test"
+import clc from 'cli-color'
 
 export function SingIn({ setIsRegistering }) {
-  const auth = getAuth(firebaseApp);
-  const [email, setEmail] = useState('');
-  const [pass, setPass] = useState('');
+  const auth = getAuth(firebaseApp)
+  const [email, setEmail] = useState('')
+  const [pass, setPass] = useState('')
+
+  function tester() {
+    console.log(clc.bgGreen('  PASS  '), 'The promise returns fullfill')
+    console.log(clc.bgRed('  ERROR  '), 'The promise returns rejected')
+    console.log(clc.bgYellowBright('  WARN  '), 'Some objects are missing')
+    console.log(clc.bgRed('  ERROR  '), 'The promise returns rejected')
+    console.log(clc.bgGreen('  PASS  '), 'The promise returns fullfill')
+    console.log(clc.bgYellowBright('  WARN  '), 'Some objects are missing')
+
+    /*console.log(messageFail, fail, "El usuario y la contraseña no coinciden con auth y infoFirestore en SignIn.jsx")
+    console.log(messageFail, fail, "Error de autenticación")
+    console.log(messageFail, fail, "Credenciales incorrectas")*/
+  }
 
   function handleSignIn() {
     signInWithEmailAndPassword(auth, email, pass)
       .then((userCredential) => {
-        const user = userCredential.user;
+        const user = userCredential.user
         // Alert.alert('Bienvenido ' + user.email);
       })
-      .catch(err => Alert.alert(err.message));
+      .catch(err => Alert.alert(err.message))
   };
 
   return (
@@ -46,7 +61,8 @@ export function SingIn({ setIsRegistering }) {
 
           <TouchableOpacity
             style={s.btnSignIn}
-            onPress={handleSignIn}>
+            // onPress={handleSignIn}>
+            onPress={tester}>
             <Text style={s.btnSignInText}>Entrar</Text>
           </TouchableOpacity>
 
@@ -68,5 +84,5 @@ export function SingIn({ setIsRegistering }) {
         </View>
       </ScrollView>
     </KeyboardAvoidingView >
-  );
+  )
 }
