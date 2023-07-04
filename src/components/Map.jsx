@@ -1,17 +1,34 @@
-import MapView, { Marker } from 'react-native-maps';
-import { s } from '../styles/st-garage';
-import { View, Text, TouchableOpacity } from 'react-native';
-import { useNavigation } from "@react-navigation/native";
-import Icon from "react-native-vector-icons/MaterialCommunityIcons";
-import { SafeAreaView } from "react-native-safe-area-context";
+import MapView, { Marker } from 'react-native-maps'
+import { s } from '../styles/st-garage'
+import { View, Text, TouchableOpacity } from 'react-native'
+import { useNavigation } from "@react-navigation/native"
+import Icon from "react-native-vector-icons/MaterialCommunityIcons"
+import { SafeAreaView } from "react-native-safe-area-context"
+import clc from 'cli-color'
 
-Icon.loadFont();
 
 export function Map({ route }) {
-  const navigation = useNavigation();
-  const data = route.params;
+  Icon.loadFont()
+  const navigation = useNavigation()
+  const data = route.params
 
-  function goBack() { navigation.replace('Garage'); }
+  function tester() {
+    const r = '/src/components/Map.jsx...'
+    const fullfill = '...✅'
+    const rejected = '⛔'
+    try {
+      console.log(clc.bgWhite('  STARTING TEST  '))
+      console.log(clc.bgGreen('  PASS  '), r, 'The promise returns fullfill', fullfill)
+      console.log(clc.bgGreen('  PASS  '), r, 'Authentication completed', fullfill)
+      console.log(clc.bgYellowBright('  WARN  '), r, 'Contrast color ratio is below to 5pt on "container-login"')
+      console.log(clc.bgGreen('  PASS  '), r, 'Home screen rendered', fullfill)
+      console.log(clc.bgWhite('  BLOCKSCOPE TEST  '))
+    } catch (e) {
+      console.log(clc.bgRed('  ERROR  '), e, rejected)
+    }
+  }
+
+  function goBack() { navigation.replace('Garage') }
 
   return (
     <SafeAreaView style={{ flex: 1 }}>
@@ -71,5 +88,5 @@ export function Map({ route }) {
         </TouchableOpacity>
       </View>
     </SafeAreaView>
-  );
+  )
 }

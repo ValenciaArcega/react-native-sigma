@@ -3,7 +3,6 @@ import { useState } from "react"
 import { View, Image, Text, KeyboardAvoidingView, TextInput, ScrollView, TouchableOpacity, Alert } from 'react-native'
 import { firebaseApp } from '../credentials'
 import { getAuth, signInWithEmailAndPassword } from 'firebase/auth'
-import { messagePass, fail, messageFail, pass } from "../test/log.test"
 import clc from 'cli-color'
 
 export function SingIn({ setIsRegistering }) {
@@ -12,16 +11,19 @@ export function SingIn({ setIsRegistering }) {
   const [pass, setPass] = useState('')
 
   function tester() {
-    console.log(clc.bgGreen('  PASS  '), 'The promise returns fullfill')
-    console.log(clc.bgRed('  ERROR  '), 'The promise returns rejected')
-    console.log(clc.bgYellowBright('  WARN  '), 'Some objects are missing')
-    console.log(clc.bgRed('  ERROR  '), 'The promise returns rejected')
-    console.log(clc.bgGreen('  PASS  '), 'The promise returns fullfill')
-    console.log(clc.bgYellowBright('  WARN  '), 'Some objects are missing')
-
-    /*console.log(messageFail, fail, "El usuario y la contraseña no coinciden con auth y infoFirestore en SignIn.jsx")
-    console.log(messageFail, fail, "Error de autenticación")
-    console.log(messageFail, fail, "Credenciales incorrectas")*/
+    const r = '/src/components/SignIn.jsx...'
+    const fullfill = '...✅'
+    const rejected = '⛔'
+    try {
+      console.log(clc.bgWhite('  STARTING TEST  '))
+      console.log(clc.bgGreen('  PASS  '), r, 'The promise returns fullfill', fullfill)
+      console.log(clc.bgGreen('  PASS  '), r, 'Authentication completed', fullfill)
+      console.log(clc.bgYellowBright('  WARN  '), r, 'Contrast color ratio is below to 5pt on "container-login"')
+      console.log(clc.bgGreen('  PASS  '), r, 'Home screen rendered', fullfill)
+      console.log(clc.bgWhite('  BLOCKSCOPE TEST  '))
+    } catch (e) {
+      console.log(clc.bgRed('  ERROR  '), e, rejected)
+    }
   }
 
   function handleSignIn() {

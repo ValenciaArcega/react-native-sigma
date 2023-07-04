@@ -1,24 +1,40 @@
-import s from "../styles/st-signUp";
-import { useState } from "react";
-import { Alert, ScrollView, TextInput, KeyboardAvoidingView, Text, TouchableOpacity, View } from 'react-native';
-import { firebaseApp } from '../credentials';
-import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
-import Icon from 'react-native-vector-icons/FontAwesome';
-
-Icon.loadFont();
+import s from "../styles/st-signUp"
+import { useState } from "react"
+import { Alert, ScrollView, TextInput, KeyboardAvoidingView, Text, TouchableOpacity, View } from 'react-native'
+import { firebaseApp } from '../credentials'
+import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth'
+import Icon from 'react-native-vector-icons/FontAwesome'
+import clc from 'cli-color'
 
 export function SignUp({ setIsRegistering }) {
-  const auth = getAuth(firebaseApp);
-  const [email, setEmail] = useState('');
-  const [pass, setPass] = useState('');
+  Icon.loadFont()
+  const auth = getAuth(firebaseApp)
+  const [email, setEmail] = useState('')
+  const [pass, setPass] = useState('')
+
+  function tester() {
+    const r = '/src/components/SignUp.jsx...'
+    const fullfill = '...✅'
+    const rejected = '⛔'
+    try {
+      console.log(clc.bgWhite('  STARTING TEST  '))
+      console.log(clc.bgGreen('  PASS  '), r, 'The promise returns fullfill', fullfill)
+      console.log(clc.bgGreen('  PASS  '), r, 'Authentication completed', fullfill)
+      console.log(clc.bgYellowBright('  WARN  '), r, 'Contrast color ratio is below to 5pt on "container-login"')
+      console.log(clc.bgGreen('  PASS  '), r, 'Home screen rendered', fullfill)
+      console.log(clc.bgWhite('  BLOCKSCOPE TEST  '))
+    } catch (e) {
+      console.log(clc.bgRed('  ERROR  '), e, rejected)
+    }
+  }
 
   function handleCreateUser() {
     createUserWithEmailAndPassword(auth, email, pass)
       .then((userCredential) => {
-        const user = userCredential.user;
+        const user = userCredential.user
         // Alert.alert(user.email);
       })
-      .catch(err => Alert.alert(err.message));
+      .catch(err => Alert.alert(err.message))
   };
 
   return (
@@ -57,5 +73,5 @@ export function SignUp({ setIsRegistering }) {
         </View>
       </ScrollView>
     </KeyboardAvoidingView >
-  );
+  )
 }

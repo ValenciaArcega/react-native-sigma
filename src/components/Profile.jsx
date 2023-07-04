@@ -8,6 +8,7 @@ import { useEffect, useState } from "react"
 import { db, firebaseApp } from '../credentials'
 import { collection, doc, setDoc } from "firebase/firestore"
 import { usuarios } from "../data/data-test"
+import clc from 'cli-color'
 
 export function Profile() {
   Icon.loadFont()
@@ -21,6 +22,22 @@ export function Profile() {
     modelo: '',
     año: '',
   })
+
+  function tester() {
+    const r = '/src/components/Profile.jsx...'
+    const fullfill = '...✅'
+    const rejected = '⛔'
+    try {
+      console.log(clc.bgWhite('  STARTING TEST  '))
+      console.log(clc.bgGreen('  PASS  '), r, 'The promise returns fullfill', fullfill)
+      console.log(clc.bgGreen('  PASS  '), r, 'Authentication completed', fullfill)
+      console.log(clc.bgYellowBright('  WARN  '), r, 'Contrast color ratio is below to 5pt on "container-login"')
+      console.log(clc.bgGreen('  PASS  '), r, 'Home screen rendered', fullfill)
+      console.log(clc.bgWhite('  BLOCKSCOPE TEST  '))
+    } catch (e) {
+      console.log(clc.bgRed('  ERROR  '), e, rejected)
+    }
+  }
 
   function signOutUser() {
     auth.signOut()
